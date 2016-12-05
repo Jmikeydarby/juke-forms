@@ -14,14 +14,14 @@ class FilterableArtistsContainer extends React.Component {
   handleChange (event) {
     const value = event.target.value;
     this.setState({
-      inputValue: value
+      inputValue: value.toLowerCase()
     })
   }
 
 
   render () {
     const inputValue = this.state.inputValue;
-    const filteredArtists = this.props.artists.filter(artist => artist.name.match(inputValue));
+    const filteredArtists = this.props.artists.filter(artist => artist.name.toLowerCase().match(inputValue));
     return (
       <div>
         <FilterInput value={inputValue} handleChange={this.handleChange} />
