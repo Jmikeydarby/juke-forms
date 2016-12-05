@@ -5,7 +5,7 @@ const Sidebar = (props) => {
 
   return (
     <sidebar>
-      <img src="juke.svg" className="logo" />
+      <img src="/juke.svg" className="logo" />
       <section>
         <h4 className="menu-item">
           <Link to='/albums'>ALBUMS</Link>
@@ -14,6 +14,7 @@ const Sidebar = (props) => {
       <section>
         <h4 className="menu-item">
           <Link to='/artists'>ARTISTS</Link>
+
         </h4>
       </section>
       <hr />
@@ -28,8 +29,8 @@ const Sidebar = (props) => {
         <ul className="list-unstyled">
           {props.playlists.map( playlist => {
             return (
-              <li className="playlist-item menu-item" key={playlist.name}>
-                <Link to="FILL_ME_IN">{playlist.name}</Link>
+              <li className="playlist-item menu-item" key={playlist.id}>
+                <Link to={`/playlists/${playlist.id}`}>{playlist.name}</Link>
               </li>
             )
           })}
