@@ -26,12 +26,13 @@ const Sidebar = (props) => {
         </h4>
         <hr />
         <ul className="list-unstyled">
-          <li className="playlist-item menu-item">
-            <Link to="FILL_ME_IN">some playlist</Link>
-          </li>
-          <li className="playlist-item menu-item">
-            <Link to="WHERE_TO_GO">another playlist</Link>
-          </li>
+          {props.playlists.map( playlist => {
+            return (
+              <li className="playlist-item menu-item" key={playlist.name}>
+                <Link to="FILL_ME_IN">{playlist.name}</Link>
+              </li>
+            )
+          })}
         </ul>
         </section>
     </sidebar>

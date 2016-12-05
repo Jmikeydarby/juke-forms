@@ -26,15 +26,10 @@ class NewPlaylistContainer extends React.Component {
   handleSubmit (event) {
     const value = event.target.value;
     event.preventDefault();
-    axios.post('/api/playlists/', { name: this.state.inputValue })
-    .then(res => res.data)
-    .then(result => {
-      console.log(result);
-      this.setState({
-        inputValue: "",
-        disabled: true
-      })
-
+    this.props.createPlaylist(this.state.inputValue);
+    this.setState({
+      inputValue: "",
+      disabled: true
     })
   }
 
